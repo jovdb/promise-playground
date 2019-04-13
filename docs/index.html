@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/src.9ad09f98.css">
+		<link rel="stylesheet" type="text/css" href="/editor.985f588e.css">
+	<script src="/src.9ad09f98.js"></script><script src="/editor.985f588e.js"></script><link rel="stylesheet" href="/src.77de5100.css"></head>
+	<body>
+		<div class="app">
+			<header>
+				<span class="header__title">Promise Playground</span>
+				<span class="header__right"></span>
+			</header>
+			<main>
+				<section class="editor">
+					<div id="code" spellcheck="false" class="editor__textarea"></div>
+					<pre id="error-message"></pre>
+				</section>
+				<div class="divider"></div>
+				<section class="preview">
+				</section>
+			</main>
+		</div>
+		<script>// Defines outside '//use strict' scope
+function evalCode(vars, code) {
+  // http://blog.rakeshpai.me/2008/10/understanding-eval-scope-spoiler-its.html
+  // @ts-ignore
+  with (vars) {
+    // with can simulate closures
+    eval(code);
+  }
+}
+
+var isEdge = navigator.userAgent.indexOf("Edge/") >= 0;
+var isIE = navigator.userAgent.indexOf("Trident") >= 0;
+
+if (isEdge || isIE) {
+  alert("Your browser is not supported.\nPlease, use a descent browser!");
+}</script>
+		<script src="/src.77de5100.js"></script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+.promise-item {
+	min-height: 20px;
+	min-width: 300px;
+	outline: 2px solid black;
+	margin: 0 10px calc(1em + 30px) 10px; /* 30px because output arrows are absolute */
+	position: relative;
+}
+
+.promise-item__inner-box,
+.promise-item__success-handler,
+.promise-item__error-handler {
+	margin: 0 10px;
+	min-width: 100px;
+	padding: 10px;
+}
+
+.promise-item__title {
+	padding: 12px 10px 12px 10px;
+	font-weight: bold;
+}
+
+.promise-item > table > tr > td {
+	padding-bottom: 40px;
+}
+
+.promise-item > table > tr > td {
+	width: 50%;
+
+}
+
+.promise-item__success-handler,
+.promise-item__error-handler {
+	text-align: center;
+	outline: 2px solid black;
+}
+
+
+.promise-input {
+	height: 30px;
+	margin: 0 10px;
+}
+
+.promise-output {
+	position: absolute;
+}
+
+.promise-output__value {
+	display: inline-block;
+	height: 1em;
+	padding: 5px;
+	margin-top: 15px;
+	outline: black solid 1px;
+	transform:  translateX(-50%); /* center */
+	white-space: nowrap; /* prevent multiline */
+}

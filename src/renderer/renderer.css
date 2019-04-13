@@ -1,0 +1,21 @@
+.rendering {
+	padding: 2px;
+	font-family: monospace;
+	font-size: 12px;
+	visibility: hidden;
+	position: absolute;
+}
+
+.rendering .children td {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.fit {
+	overflow: hidden;
+}
+
+#root {
+	width: 100%;
+	height: 100%;
+}
