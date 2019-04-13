@@ -1,0 +1,2 @@
+.editor{border-bottom:1px solid #ff8c00;border-right:1px solid #ff8c00;border-color:#ff8c00 #dd7900 #dd7900 #ff8c00;border-style:solid;border-width:1px;position:relative;overflow:hidden}.editor__textarea{flex:1;height:10px}.editor__textarea:focus{outline:none}#error-message{margin:5px;color:#d00;font-family:monospace;overflow:hidden;text-overflow:ellipsis}#error-message:not(.show){display:none}.divider{top:0;width:5px;bottom:0;cursor:ew-resize}.divider:hover{background-color:hsla(0,0%,100%,.3)}
+/*# sourceMappingURL=editor.2b2d0cd3.css.map */

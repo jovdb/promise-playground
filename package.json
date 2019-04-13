@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "parcel serve src/index.html --out-dir docs --open",
-    "build": "parcel build src/index.html --out-dir docs"
+    "start": "parcel watch src/index.html --out-dir docs --public-url ./",
+    "build": "parcel build src/index.html --out-dir docs --public-url ./",
+    "serve": "ECHO The parcel watch command has this problem: https://github.com/parcel-bundler/parcel/issues/782, I used Live Server"
   },
   "keywords": [],
   "author": "",
