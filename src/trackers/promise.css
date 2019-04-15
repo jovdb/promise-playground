@@ -4,6 +4,7 @@
 	outline: 2px solid black;
 	margin: 0 10px calc(1em + 30px) 10px; /* 30px because output arrows are absolute */
 	position: relative;
+	white-space: nowrap;
 }
 
 .promise-item__inner-box,
