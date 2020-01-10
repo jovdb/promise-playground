@@ -15,17 +15,17 @@
 */
 
 // import { createPromiseGraph } from './promiseGraph';
-import * as svg from '../svg-utils';
+import * as svg from "../svg-utils";
 
 import "./renderer.css";
-import { createCommandManager } from './commands/Command';
-import { assert, pipe, useRafThrottle } from '../utils';
+import { createCommandManager } from "./commands/Command";
+import { assert, pipe, useRafThrottle } from "../utils";
 
 declare global {
 
 	interface IRenderItem {
 		// TODO, refactor out (currently needed for graph)
-		promise: Promise<any>
+		promise: Promise<any>;
 	}
 
 	interface IRenderer extends ReturnType<typeof createRenderer> {
@@ -63,7 +63,7 @@ function addHorizontalStack(parentEl: HTMLElement) {
 		if (trEl.tagName !== "TR") throw new Error("Unexpected sibling");
 	} else {
 		trEl = document.createElement("tr");
-		tableEl.appendChild(trEl)
+		tableEl.appendChild(trEl);
 	}
 
 	return trEl;
@@ -74,9 +74,9 @@ function addToHorizontalStack(trEl: HTMLElement, itemEl: HTMLElement) {
 
 	tdEl.style.padding = "0";
 	tdEl.style.verticalAlign = "top";
-	trEl.appendChild(tdEl)
+	trEl.appendChild(tdEl);
 
-	tdEl.appendChild(itemEl)
+	tdEl.appendChild(itemEl);
 
 }
 
@@ -176,7 +176,7 @@ export function createRenderer({
 			for (let commandIndex = lastRenderedIndex + 1; commandIndex <= lastCommandIndex; commandIndex++) {
 				const command = commandManager.commands[commandIndex];
 				console.log(command.description || command.name);
-			};
+			}
 		}
 
 		function getCommandsForDom() {
@@ -308,7 +308,7 @@ export function createRenderer({
 			svgCommands.forEach(command => {
 				const itemInfo = itemMap.get(command.id);
 				if (!itemInfo) throw new Error(`Error executing command '${command.name}': RenderItem not found: ${command.id}`);
-				command.updateSvg(itemInfo.svgItemEl)
+				command.updateSvg(itemInfo.svgItemEl);
 			});
 
 			// update svgSize
@@ -339,7 +339,7 @@ export function createRenderer({
 	const rootEl = document.createElement("div");
 	rootEl.classList.add("rendering");
 	rootEl.style.display = "inline-block";
-	el.appendChild(rootEl);
+	document.body.appendChild(rootEl);
 
 	// Create a Horizontal stack for all root Promises
 	const rootTrEl = addHorizontalStack(rootEl);
@@ -361,8 +361,8 @@ export function createRenderer({
 		clear() {
 			commandManager.clear();
 			lastRenderedIndex = -1;
-			while (svgRoot.firstChild) {svgRoot.removeChild(svgRoot.firstChild)};
-			while (rootTrEl.firstChild) {rootTrEl.removeChild(rootTrEl.firstChild)};
+			while (svgRoot.firstChild) {svgRoot.removeChild(svgRoot.firstChild);}
+			while (rootTrEl.firstChild) {rootTrEl.removeChild(rootTrEl.firstChild);}
 		},
 
 		commandManager,

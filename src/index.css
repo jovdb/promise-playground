@@ -14,6 +14,7 @@ body {
 header {
 	font-family: monospace;
 	padding: 5px 10px 0 5px;
+	flex: 0 1 auto;
 }
 
 .header__title {
@@ -38,39 +39,20 @@ header::after {
 main {
 	display: flex;
 	flex-direction: row;
-	flex: 1;
 	justify-content: space-between;
-	padding: 5px;
-	height: 100%;
-}
-
-@media only screen and (max-width: 715px) {
-	main {
-		flex-direction: column;
-	}
-
-	.editor {
-		margin-right: 0 !important;
-	}
-
-	.preview {
-		margin-top: 5px;
-	}
-
-	.divider {
-		display: none;
-	}
+	flex: 1 1 auto;
 }
 
 .editor {
 	display: flex;
 	flex-direction: column;
 	flex-basis: 35%;
+	margin-left: 5px;
+	margin-bottom: 5px;
 }
 
 .preview {
 	position: relative;
-	width: 100%;
 	flex: 1 0 0;
 
 	box-sizing: border-box;
@@ -81,10 +63,18 @@ main {
 	border-bottom: 1px solid rgb(221, 121, 0);
 	padding: 10px 0;
 	text-align: center;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.preview svg {
+	position: absolute; /* don't take space so we can measure .preview and resize svg to fit */
+	display: block;
 }
 
 .preview.fit {
 	text-align: unset;
+
 }
 
 .preview.fit svg {
@@ -92,6 +82,26 @@ main {
 	height: 100%;
 	padding: 5px;
 	box-sizing: border-box;
-	position: absolute; /* don't take space so we can measure .preview and resize svg to fit */
 }
 
+
+@media only screen and (max-width: 715px) {
+	main {
+		flex-direction: column;
+	}
+
+	.editor {
+		margin-right: 5px;
+		margin-bottom: 0px;
+		flex-basis: 150px !important;	
+	}
+
+	.preview {
+		margin-top: 5px;
+		margin-left: 5px;
+	}
+
+	.divider {
+		display: none;
+	}
+}

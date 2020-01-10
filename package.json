@@ -13,7 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "monaco-editor": "^0.16.2",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.4"
   },
   "dependencies": {}
 }

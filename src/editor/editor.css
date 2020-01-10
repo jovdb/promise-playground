@@ -4,7 +4,6 @@
 	border-right: 1px solid rgb(221, 121, 0);
 	border-bottom: 1px solid rgb(221, 121, 0);
 	position: relative;
-	overflow: hidden;
 }
 
 .editor__textarea {
@@ -17,11 +16,13 @@
 }
 
 #error-message {
-	margin: 5px;
+	padding: 5px;
+	margin: 0; /* pre */
 	color: #dd0000;
 	font-family: monospace;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	border-top: 1px solid rgba(255,255,255,0.5);
 }
 
 #error-message:not(.show) {
@@ -37,4 +38,12 @@
 
 .divider:hover {
 	background-color: rgba(255,255,255,0.3);
+}
+
+.monaco-editor {
+	height: 100% !important;
+}
+
+.monaco-editor > *:nth-child(1) {
+	height: 100% !important;
 }
