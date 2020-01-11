@@ -4,7 +4,7 @@ function createLink(code: string | undefined) {
 	if (code) {
 		let url = window.location.href;
 		const index = url.indexOf("?");
-		if (index > -1) url = url.substring(index - 1);
+		if (index > -1) url = url.substring(0, index - 1);
 
 		url += `?code=${encodeURIComponent(code)}`;
 		return url;
@@ -13,19 +13,19 @@ function createLink(code: string | undefined) {
 }
 
 function copyToClipboard(value: string) {
-	const el = document.createElement('textarea');
+	const el = document.createElement("textarea");
 	el.value = value;
-	el.setAttribute('readonly', '');
-	el.style.position = 'absolute';
-	el.style.left = '-9999px';
+	el.setAttribute("readonly", "");
+	el.style.position = "absolute";
+	el.style.left = "-9999px";
 	document.body.appendChild(el);
 
-	const selection = document.getSelection()
+	const selection = document.getSelection();
 	const selected = selection && selection.rangeCount > 0
 		? selection.getRangeAt(0)
 		: false;
 	el.select();
-	document.execCommand('copy');
+	document.execCommand("copy");
 	document.body.removeChild(el);
 	if (selection && selected) {
 		selection.removeAllRanges();
@@ -73,7 +73,7 @@ export function addLinkButton({
 
 	// Add Click handler
 	const unsubscribeClickEvent = addEventListener(linkEl, "click", () => {
-		const url = createLink(getCode())
+		const url = createLink(getCode());
 
 		if (url) console.log(`Sharable link: ${url}`);
 
@@ -90,12 +90,12 @@ export function addLinkButton({
 
 			function getParameterByName(name: string, url?: string) {
 				if (!url) url = window.location.href;
-				name = name.replace(/[\[\]]/g, '\\$&');
-				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
 					results = regex.exec(url);
 				if (!results) return null;
-				if (!results[2]) return '';
-				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+				if (!results[2]) return "";
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
 			}
 
 			return getParameterByName("code") || undefined;
@@ -109,5 +109,5 @@ export function addLinkButton({
 			unsubscribeClickEvent();
 			unsubscribeBroadcaster();
 		}
-	}
+	};
 }

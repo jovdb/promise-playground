@@ -33,7 +33,7 @@ new Promise((resolve) => {
 	.catch(err => 0);`,
 	},
 	{
-		name: "Promise.finally",
+		name: "finally",
 		code: `let isCalculating = true;
 
 Promise.resolve(42)
@@ -151,7 +151,7 @@ getGitHubUserInfo("jovdb")                 // Get User info
 	})
 );`,
 	},
-]
+];
 
 export function addSamples({
 	onChange,
